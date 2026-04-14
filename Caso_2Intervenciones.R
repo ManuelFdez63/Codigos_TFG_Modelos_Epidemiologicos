@@ -25,7 +25,7 @@ params_fase3 <- c(beta = 2.4, gamma = 0.15, b = 0.05, N = N_pob)
 # Estado inicial del sistema
 x0 <- c(S = 9, I = 10, R = 0)
 
-# Definición de la estructura estocástica (Matriz de cambio y propensiones)
+# Definición de la estructura estocástica (Matriz de cambio y probabilidades de transición)
 nu <- matrix(c(-1, 1, 0,  0, -1, 1,  1, 0, 0,  -1, 0, 0,  0, -1, 0,  0, 0, -1), 
              nrow = 3, byrow = FALSE)
 a <- c("beta*S*I/N", "gamma*I", "b*N", "b*S", "b*I", "b*R")
@@ -104,7 +104,6 @@ df_det_long   <- melt(df_det, id.vars = "time")
 # Función para la generación de gráficos por compartimento
 plot_compartment <- function(comp, color_stoch, title) {
   ggplot() +
-    # Representación de áreas sombreadas por fase
     annotate("rect", xmin = t_fase2, xmax = t_fase3, ymin = -Inf, ymax = Inf, fill = "orange", alpha = 0.1) +
     annotate("rect", xmin = t_fase3, xmax = t_final, ymin = -Inf, ymax = Inf, fill = "green", alpha = 0.1) +
     
