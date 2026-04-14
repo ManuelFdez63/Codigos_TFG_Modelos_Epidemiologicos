@@ -15,21 +15,13 @@ N_pob <- 100
 # CONFIGURACIÓN FASE 1: Régimen de propagación libre (R0 > 1)
 params_fase1 <- c(beta = 1, gamma = 0.2, b = 0.05, N = N_pob)
 
-# --- ESCENARIOS DE INTERVENCIÓN (FASE 2) ---
-
-# CASO 1: Restricción de movilidad (Reducción del parámetro de transmisión)
-ghjsj <- c(beta = 0.2, gamma = 0.2, b = 0.05, N = 100)
-
-# CASO 2: Aislamiento clínico y tratamiento (Incremento de la tasa de recuperación)
-jfhj <- c(beta = 1.0, gamma = 1, b = 0.05, N = 100)
-
-# CASO 3: Intervención combinada (Estrategia de supresión)
+# --- ESCENARIO DE INTERVENCIÓN (FASE 2) ---
 params_fase2 <- c(beta = 0.4, gamma = 0.5, b = 0.05, N = 100)
 
 # Definición del estado inicial del sistema (Vector de estado x0)
 x0 <- c(S = 90, I = 10, R = 0)
 
-# Definición de la matriz estequiométrica y funciones de propensión para Gillespie
+# Definición de la estructura estocástica (Matriz de cambio y probabilidades de transición)
 nu <- matrix(c(-1, 1, 0,  0, -1, 1,  1, 0, 0,  -1, 0, 0,  0, -1, 0,  0, 0, -1), 
              nrow = 3, byrow = FALSE)
 a <- c("beta*S*I/N", "gamma*I", "b*N", "b*S", "b*I", "b*R")
@@ -69,7 +61,7 @@ df_stoch <- do.call(rbind, lista_trayectorias)
 
 # --- 4. INTEGRACIÓN NUMÉRICA DEL MODELO DETERMINISTA HÍBRIDO ---
 
-# Definición del sistema de ecuaciones diferenciales ordinarias (Modelo SIR con demografía)
+# Definición del sistema de ecuaciones diferenciales ordinarias
 sir_ode <- function(t, x, parms) {
   with(as.list(c(x, parms)), {
     dS <- b*N - beta*S*I/N - b*S
