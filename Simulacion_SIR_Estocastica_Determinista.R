@@ -41,8 +41,7 @@ out_det <- ode(y = initial_state, times = times, func = sir_det_func, parms = pa
 df_det <- as.data.frame(out_det)
 
 # --- 4. MODELADO ESTOCÁSTICO (ALGORITMO DE GILLESPIE) ---
-# Matriz de estequiometría para la descripción de eventos discretos
-# Filas: S, I, R | Columnas: Infección, Recuperación, Nacimiento, Muertes (S, I, R)
+# Matriz de cambio y probabilidades de transición
 nu <- matrix(c(
   -1, +1,  0,   # Infección
   0, -1, +1,   # Recuperación
@@ -52,10 +51,9 @@ nu <- matrix(c(
   0,  0, -1    # Mortalidad R
 ), nrow = 3, byrow = FALSE)
 
-# Definición de las funciones de propensión para las transiciones
 a <- c("beta * S * I / N", "gamma * I", "b * N", "b * S", "b * I", "b * R")
 
-# Ejecución de simulaciones de Monte Carlo mediante el algoritmo de Gillespie
+# Ejecución de simulaciones mediante el algoritmo de Gillespie
 set.seed(42)
 lista_sims <- list()
 n_sims <- 20
