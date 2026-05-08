@@ -11,7 +11,7 @@ params <- c(
   beta = 0.8,         # Coeficiente de transmisión
   gamma = 0.1,        # Tasa de recuperación (ajustado para R0 > 1)
   b = 0.05,           # Tasa de dinámica vital (natalidad/mortalidad)
-  mu = 0.15,          # Tasa de pérdida de inmunidad (NUEVO PARÁMETRO SIRS)
+  mu = 0.15,          # Tasa de pérdida de inmunidad 
   N = 100             # Tamaño de la población total
 )
 
