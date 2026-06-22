@@ -10,6 +10,7 @@ Se incluyen simulaciones que abarcan desde la aproximación macroscópica (deter
 
 A continuación, se detalla el propósito de cada uno de los *scripts* de R incluidos en esta carpeta:
 
+* **`SIR_Determinista_Libre_Enfermedad.R`**: Análisis del sistema determinista en un escenario donde $\mathcal{R}_0 < 1$. Muestra cómo, a pesar de la pérdida de inmunidad, la infección no logra sostenerse y la población converge al equilibrio donde la enfermedad se extingue.
 * **`SIR_Determinista_Equilibrio_Endemico.R`**: Análisis del sistema determinista con dinámica vital (nacimientos y muertes). Muestra cómo el sistema oscila y converge hacia un punto de equilibrio endémico a largo plazo determinado por el teorema del umbral.
 * **`Simulacion_SIR_Estocastica_Determinista.R`**: En este *script* se comparan las trayectorias generadas por el sistema de Ecuaciones Diferenciales Ordinarias (EDOs) frente a las trayectorias de salto discretas obtenidas mediante el algoritmo exacto de Gillespie.
 * **`Aproximacion_Van_Kampen_SIR.R`**: Implementación de las Ecuaciones Diferenciales Estocásticas (en inglés, SDE). Utiliza la expansión del tamaño del sistema de Van Kampen para aislar y simular el ruido gaussiano alrededor de la trayectoria determinista.
