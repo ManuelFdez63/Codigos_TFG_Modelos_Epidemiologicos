@@ -1,8 +1,8 @@
 # Códigos TFG: Modelos Epidemiológicos
 
-Este repositorio contiene las implementaciones de las las simulaciones numéricas desarrolladas en R para el Trabajo de Fin de Grado (TFG) sobre modelización estocástica de la propagación epidemiológica. 
+Este repositorio contiene las implementaciones de las simulaciones numéricas desarrolladas en R para el Trabajo de Fin de Grado (TFG) sobre modelización estocástica de la propagación epidemiológica. 
 
-Para facilitar el desarrollo independiente y el orden de los scripts, los códigos de cada modelo se encuentra organizado en ramas independientes dentro de este repositorio.
+Para facilitar el desarrollo independiente y el orden de los archivos, los códigos de cada modelo se encuentra organizado en ramas independientes dentro de este repositorio.
 
 ---
 
